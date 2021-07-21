@@ -1,1 +1,40 @@
-<p>resistance-bands works!</p>
+<div class="container border border-3 rounded-3 p-3">
+  <h2 id="resistanceMessage">Resistance: {{ resistance }}</h2>
+  <h5 class="mt-2">Select Bands</h5>
+
+  <div class="row">
+    <p class="col-6 text-center">Digits</p>
+    <p class="col-2 text-center">Multiplier</p>
+    <p class="col-2 text-center">Tolerance</p>
+  </div>
+  <div class="row">
+    <div class="col-2">
+      <select [(ngModel)]="bands[0]" id="band0" (ngModelChange)="onChange($event, 0)" class="form-select" [ngStyle]="{'background-color': bands[0],'color':isBgDark(bands[0]) ? 'white' : 'black'}">
+        <option *ngFor="let color of digitColors" value="{{ color }}" [ngStyle]="{'background-color': color, 'color':isBgDark(color) ? 'white' : 'black'}">{{ color }}</option>
+      </select>
+    </div>
+    <div class="col-2">
+      <select [(ngModel)]="bands[1]" id="band1" (ngModelChange)="onChange($event, 1)" class="form-select" [ngStyle]="{'background-color': bands[1],'color':isBgDark(bands[1]) ? 'white' : 'black'}">
+        <option *ngFor="let color of digitColors" value="{{ color }}" [ngStyle]="{'background-color': color, 'color':isBgDark(color) ? 'white' : 'black'}">{{ color }}</option>
+      </select>
+    </div>
+    <div class="col-2">
+      <select [(ngModel)]="bands[2]" id="band2" (ngModelChange)="onChange($event, 2)" class="form-select" [ngStyle]="{'background-color': bands[2],'color':isBgDark(bands[2]) ? 'white' : 'black'}">
+        <option *ngFor="let color of digitColors" value="{{ color }}" [ngStyle]="{'background-color': color, 'color':isBgDark(color) ? 'white' : 'black'}">{{ color }}</option>
+      </select>
+    </div>
+    <div class="col-2">
+      <select [(ngModel)]="bands[3]" id="band3" (ngModelChange)="onChange($event, 3)" class="form-select" [ngStyle]="{'background-color': bands[3],'color':isBgDark(bands[3]) ? 'white' : 'black'}">
+        <option *ngFor="let color of multiplierColors" value="{{ color }}" [ngStyle]="{'background-color': color, 'color':isBgDark(color) ? 'white' : 'black'}">{{ color }}</option>
+      </select>
+    </div>
+    <div class="col-2">
+      <select [(ngModel)]="bands[4]" id="band4" (ngModelChange)="onChange($event, 4)" class="form-select" [ngStyle]="{'background-color': bands[4],'color':isBgDark(bands[4]) ? 'white' : 'black'}">
+        <option *ngFor="let color of toleranceColors" value="{{ color }}" [ngStyle]="{'background-color': color, 'color':isBgDark(color) ? 'white' : 'black'}">{{ color }}</option>
+      </select>
+    </div>
+    <div class="col-2 text-center">
+      <button type="button" (click)="clear()" class="btn btn-danger" id="clearBtn">Clear Bands</button>
+    </div>
+  </div>
+  <div>
