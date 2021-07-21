@@ -6,6 +6,11 @@ pipeline {
         sh 'npm install'
       }
     }
+    stage('Test') {
+      steps {
+        sh 'ng test'
+      }
+    }
     stage('e2e') {
       steps {
         sh 'docker build --tag project4:testimage .'
