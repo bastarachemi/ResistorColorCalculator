@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 
 import { ResistanceBandsComponent } from './resistance-bands.component';
-import { BandsService } from '../../services/bands.service';
+import { BandsService } from '../services/bands.service';
 
 describe('ResistanceBandsComponent with Real Service', () => {
   let component: ResistanceBandsComponent;
