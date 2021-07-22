@@ -28,7 +28,14 @@ pipeline {
     }
     stage('Deploy') {
       steps {
-        echo "Not yet implemented"
+        sh 'docker build --tag project4:deployimage .'
+        sh 'docker run -dp 5000:4200 --name deploycontainer -v "$WORKSPACE:/app" project4:deployimage'
+      }
+      post {
+        always {
+          sh 'docker rm -f deploycontainer || true'
+          sh 'docker rmi -f project4:deployimage || true'
+        }
       }
     }
   }
